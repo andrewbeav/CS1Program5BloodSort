@@ -20,6 +20,6 @@ public class BloodSort
     String sortField = scan.nextLine();
 
     // Creating new scanner to read in from file
-    Scanner file = new Scanner(new File(fileName)); 
+    Scanner file = new Scanner(new File(fileName));
   }
 }

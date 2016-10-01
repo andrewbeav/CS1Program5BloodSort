@@ -21,5 +21,8 @@ public class BloodSort
 
     // Creating new scanner to read in from file
     Scanner file = new Scanner(new File(fileName));
+
+    // Creating array list of blood donors
+    ArrayList<BloodDonor> donors = new ArrayList<>();
   }
 }

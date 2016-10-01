@@ -1,14 +1,17 @@
 public class BloodDonor
 {
+  // Creating public variables to hold values
   public int idNum;
   public String lastName, firstName, type;
   public double donationTime;
 
+  // Constructor
   public BloodDonor()
   {
 
   }
 
+  // "Setter" method to set values
   public void setValues(int idNumber, String nameLast, String nameFirst, String bloodType, double donateTime)
   {
     idNum = idNumber;
@@ -18,6 +21,10 @@ public class BloodDonor
     donationTime = donateTime;
   }
 
+
+  /*
+    "Getter" methods to get the values
+  */
   public int getIdNum()
   {
     return idNum;

@@ -24,5 +24,13 @@ public class BloodSort
 
     // Creating array list of blood donors
     ArrayList<BloodDonor> donors = new ArrayList<>();
+
+    while (file.hasNext())
+    {
+      String line = file.nextLine();
+      String[] values = line.split(",");
+      BloodDonor donor = new BloodDonor(Integer.parseInt(values[0]), values[1], values[2], values[3], Double.parseDouble(values[4]));
+      donors.add(donor);
+    }
   }
 }

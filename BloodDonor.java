@@ -6,13 +6,7 @@ public class BloodDonor
   public double donationTime;
 
   // Constructor
-  public BloodDonor()
-  {
-
-  }
-
-  // "Setter" method to set values
-  public void setValues(int idNumber, String nameLast, String nameFirst, String bloodType, double donateTime)
+  public BloodDonor(int idNumber, String nameLast, String nameFirst, String bloodType, double donateTime)
   {
     idNum = idNumber;
     lastName = nameLast;
@@ -20,7 +14,6 @@ public class BloodDonor
     type = bloodType;
     donationTime = donateTime;
   }
-
 
   /*
     "Getter" methods to get the values

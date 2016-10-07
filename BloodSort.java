@@ -131,6 +131,10 @@ public class BloodSort
     System.out.println();
     System.out.println("When prompted, enter a the name of the file with the file extension.");
     System.out.println("Then, type in the name of the field you would like to sort by [id num, last, first, type, time]");
+    System.out.println();
+    System.out.println("Make sure your file is has the necessary values seperated by commas with no spaces. As in this:");
+    System.out.println("[Id Number],[Last Name],[First Name],[Blood Type],[Donation Time]");
+    System.out.println();
   }
 
   // Method used to print the sorted list as a table

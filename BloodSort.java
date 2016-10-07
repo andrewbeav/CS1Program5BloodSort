@@ -39,6 +39,7 @@ public class BloodSort
       // Creating array list of blood donors
       ArrayList<BloodDonor> donors = new ArrayList<>();
 
+      // Another try/catch to deal with the file not having proper input
       try
       {
         // Looping through each line of input and adding those values to the donors ArrayList
@@ -56,31 +57,58 @@ public class BloodSort
             donors.add(donor);
         }
 
+        // Sort by idNum if that's what the user entered
         if (sortField.equalsIgnoreCase("id num"))
         {
+          // Sort donors ArrayList using the IdComparator class
           Collections.sort(donors, new IdComparator());
+
+          // Print the sorted list
           printTable(donors);
         }
+
+        // Sort by lastName if that's what the user entered
         else if (sortField.equalsIgnoreCase("last"))
         {
+          // Sort donors ArrayList using the LastNameComparator class
           Collections.sort(donors, new LastNameComparator());
+
+          // Print the sorted list
           printTable(donors);
         }
+
+        // Sort by firstName if that's what the user entered
         else if (sortField.equalsIgnoreCase("first"))
         {
+          // Sort donors ArrayList using the FirstNameComparator class
           Collections.sort(donors, new FirstNameComparator());
+
+          // Print the sorted list
           printTable(donors);
         }
+
+        // Sort by bloodType if that's what the user entered
         else if (sortField.equalsIgnoreCase("type"))
         {
+          // Sort donors ArrayList using the TypeComparator class
           Collections.sort(donors, new TypeComparator());
+
+          // Print the sorted list
           printTable(donors);
         }
+
+        // Sort by donationTime if that's what the user entered
         else if (sortField.equalsIgnoreCase("time"))
         {
+          // Sort donors ArrayList using DonationTimeComparator class
           Collections.sort(donors, new DonationTimeComparator());
+
+          // Print the sorted list
           printTable(donors);
         }
+
+        // Print usage statement if the user did not provide
+        // proper input
         else
         {
           usage();
@@ -97,6 +125,7 @@ public class BloodSort
     }
   }
 
+  // Method to print usage statement
   public static void usage()
   {
     System.out.println();
@@ -104,6 +133,7 @@ public class BloodSort
     System.out.println("Then, type in the name of the field you would like to sort by [id num, last, first, type, time]");
   }
 
+  // Method used to print the sorted list as a table
   public static void printTable(ArrayList<BloodDonor> donors)
   {
     // Printing titles for columns

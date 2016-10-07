@@ -42,6 +42,17 @@ class TypeComparator implements Comparator<BloodDonor>
   }
 }
 
+class DonationTimeComparator implements Comparator<BloodDonor>
+{
+  public int compare(BloodDonor a, BloodDonor b)
+  {
+    double aDonationTime = a.donationTime;
+    double bDonationTime = b.donationTime;
+    int comp = aDonationTime.compareTo(bDonationTime);
+    return comp;
+  }
+}
+
 public class BloodDonor
 {
   // Creating public variables to hold values

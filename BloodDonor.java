@@ -4,10 +4,11 @@ class IdComparator implements Comparator<BloodDonor>
 {
   public int compare(BloodDonor a, BloodDonor b)
   {
-    Integer aId = a.idNum;
-    Integer bId = b.idNum;
-    int comp = aId.compareTo(bId);
-    return comp;
+    int aId = a.idNum;
+    int bId = b.idNum;
+    if (aId > bId) return 1;
+    else if (aId < bId) return -1;
+    else return 0;
   }
 }
 

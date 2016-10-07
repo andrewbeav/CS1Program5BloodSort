@@ -65,6 +65,9 @@ public class BloodSort
       usage();
     }
 
+    // Printing titles for columns
+    System.out.printf("%n %8s %15s %15s %8s %10s %n %n", "Id Num", "Last", "First", "Type", "Time");
+
     // Printing sorted list
     for (BloodDonor d : donors)
     {

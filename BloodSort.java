@@ -39,6 +39,31 @@ public class BloodSort
       BloodDonor donor = new BloodDonor(Integer.parseInt(values[0]), values[1], values[2], values[3], Double.parseDouble(values[4]));
       donors.add(donor);
     }
+
+    if (sortField.equalsIgnoreCase("id num"))
+    {
+      Collections.sort(donors, new IdComparator());
+    }
+    else if (sortField.equalsIgnoreCase("last"))
+    {
+      Collections.sort(donors, new LastNameComparator());
+    }
+    else if (sortField.equalsIgnoreCase("first"))
+    {
+      Collections.sort(donors, new FirstNameComparator());
+    }
+    else if (sortField.equalsIgnoreCase("type"))
+    {
+      Collections.sort(donors, new TypeComparator());
+    }
+    else if (sortField.equalsIgnoreCase("time"))
+    {
+      Collections.sort(donors, new DonationTimeComparator());
+    }
+    else
+    {
+      usage();
+    }
   }
 
   public static void usage()

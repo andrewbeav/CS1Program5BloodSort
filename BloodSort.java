@@ -90,8 +90,6 @@ public class BloodSort
       {
         usage();
       }
-
-
     }
     catch (FileNotFoundException e)
     {

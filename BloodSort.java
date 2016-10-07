@@ -85,15 +85,6 @@ public class BloodSort
       {
         usage();
       }
-
-      // Printing titles for columns
-      System.out.printf("%n %8s %15s %15s %8s %10s %n %n", "Id Num", "Last", "First", "Type", "Time");
-
-      // Printing sorted list
-      for (BloodDonor d : donors)
-      {
-        System.out.printf("%8d %15s %15s %8s %10.1f %n", d.idNum, d.lastName, d.firstName, d.type, d.donationTime);
-      }
     }
     catch (FileNotFoundException e)
     {
@@ -106,5 +97,17 @@ public class BloodSort
     System.out.println();
     System.out.println("When prompted, enter a the name of the file with the file extension.");
     System.out.println("Then, type in the name of the field you would like to sort by [id num, last, first, type, time]");
+  }
+
+  public static void printTable()
+  {
+    // Printing titles for columns
+    System.out.printf("%n %8s %15s %15s %8s %10s %n %n", "Id Num", "Last", "First", "Type", "Time");
+
+    // Printing sorted list
+    for (BloodDonor d : donors)
+    {
+      System.out.printf("%8d %15s %15s %8s %10.1f %n", d.idNum, d.lastName, d.firstName, d.type, d.donationTime);
+    }
   }
 }

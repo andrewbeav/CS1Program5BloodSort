@@ -1,9 +1,11 @@
+import java.util.*;
+
 class IdComparator implements Comparator<BloodDonor>
 {
   public int compare(BloodDonor a, BloodDonor b)
   {
-    int aId = a.idNum;
-    int bId = b.idNum;
+    Integer aId = a.idNum;
+    Integer bId = b.idNum;
     int comp = aId.compareTo(bId);
     return comp;
   }

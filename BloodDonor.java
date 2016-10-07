@@ -49,10 +49,11 @@ class DonationTimeComparator implements Comparator<BloodDonor>
 {
   public int compare(BloodDonor a, BloodDonor b)
   {
-    Double aDonationTime = a.donationTime;
-    Double bDonationTime = b.donationTime;
-    int comp = aDonationTime.compareTo(bDonationTime);
-    return comp;
+    double aDonationTime = a.donationTime;
+    double bDonationTime = b.donationTime;
+    if (aDonationTime > bDonationTime) return 1;
+    else if (aDonationTime < bDonationTime) return -1;
+    else return 0;
   }
 }
 

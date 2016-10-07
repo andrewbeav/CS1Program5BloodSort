@@ -64,22 +64,27 @@ public class BloodSort
       if (sortField.equalsIgnoreCase("id num"))
       {
         Collections.sort(donors, new IdComparator());
+        printTable(donors);
       }
       else if (sortField.equalsIgnoreCase("last"))
       {
         Collections.sort(donors, new LastNameComparator());
+        printTable(donors);
       }
       else if (sortField.equalsIgnoreCase("first"))
       {
         Collections.sort(donors, new FirstNameComparator());
+        printTable(donors);
       }
       else if (sortField.equalsIgnoreCase("type"))
       {
         Collections.sort(donors, new TypeComparator());
+        printTable(donors);
       }
       else if (sortField.equalsIgnoreCase("time"))
       {
         Collections.sort(donors, new DonationTimeComparator());
+        printTable(donors);
       }
       else
       {

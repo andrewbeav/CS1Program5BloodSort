@@ -1,3 +1,14 @@
+class IdComparator implements Comparator<BloodDonor>
+{
+  public int compare(BloodDonor a, BloodDonor b)
+  {
+    int aId = a.idNum;
+    int bId = b.idNum;
+    int comp = aId.compareTo(bId);
+    return comp;
+  }
+}
+
 public class BloodDonor
 {
   // Creating public variables to hold values

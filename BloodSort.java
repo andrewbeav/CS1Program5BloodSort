@@ -29,59 +29,68 @@ public class BloodSort
     System.out.print("Field to sort by: ");
     String sortField = scan.nextLine();
 
-    // Creating new scanner to read in from file
-    Scanner file = new Scanner(new File(fileName));
+    // Try/Catch so the program doesn't crash when the user enters
+    // a file that doesn't exist
+    try
+    {
+      // Creating new scanner to read in from file
+      Scanner file = new Scanner(new File(fileName));
 
-    // Creating array list of blood donors
-    ArrayList<BloodDonor> donors = new ArrayList<>();
+      // Creating array list of blood donors
+      ArrayList<BloodDonor> donors = new ArrayList<>();
 
-    // Looping through each line of input and adding those values to the donors ArrayList
-    while (file.hasNext())
-    {
-      // Reading line from file
-      String line = file.nextLine();
+      // Looping through each line of input and adding those values to the donors ArrayList
+      while (file.hasNext())
+      {
+        // Reading line from file
+        String line = file.nextLine();
 
-      // Creating array of strings
-      String[] values = line.split(",");
+        // Creating array of strings
+        String[] values = line.split(",");
 
-      // Creating new BloodDonor objects with the proper values and adding them
-      // to the donors ArrayList
-      BloodDonor donor = new BloodDonor(Integer.parseInt(values[0]), values[1], values[2], values[3], Double.parseDouble(values[4]));
-      donors.add(donor);
-    }
+        // Creating new BloodDonor objects with the proper values and adding them
+        // to the donors ArrayList
+        BloodDonor donor = new BloodDonor(Integer.parseInt(values[0]), values[1], values[2], values[3], Double.parseDouble(values[4]));
+        donors.add(donor);
+      }
 
-    if (sortField.equalsIgnoreCase("id num"))
-    {
-      Collections.sort(donors, new IdComparator());
+      if (sortField.equalsIgnoreCase("id num"))
+      {
+        Collections.sort(donors, new IdComparator());
+      }
+      else if (sortField.equalsIgnoreCase("last"))
+      {
+        Collections.sort(donors, new LastNameComparator());
+      }
+      else if (sortField.equalsIgnoreCase("first"))
+      {
+        Collections.sort(donors, new FirstNameComparator());
+      }
+      else if (sortField.equalsIgnoreCase("type"))
+      {
+        Collections.sort(donors, new TypeComparator());
+      }
+      else if (sortField.equalsIgnoreCase("time"))
+      {
+        Collections.sort(donors, new DonationTimeComparator());
+      }
+      else
+      {
+        usage();
+      }
+
+      // Printing titles for columns
+      System.out.printf("%n %8s %15s %15s %8s %10s %n %n", "Id Num", "Last", "First", "Type", "Time");
+
+      // Printing sorted list
+      for (BloodDonor d : donors)
+      {
+        System.out.printf("%8d %15s %15s %8s %10.1f %n", d.idNum, d.lastName, d.firstName, d.type, d.donationTime);
+      }
     }
-    else if (sortField.equalsIgnoreCase("last"))
-    {
-      Collections.sort(donors, new LastNameComparator());
-    }
-    else if (sortField.equalsIgnoreCase("first"))
-    {
-      Collections.sort(donors, new FirstNameComparator());
-    }
-    else if (sortField.equalsIgnoreCase("type"))
-    {
-      Collections.sort(donors, new TypeComparator());
-    }
-    else if (sortField.equalsIgnoreCase("time"))
-    {
-      Collections.sort(donors, new DonationTimeComparator());
-    }
-    else
+    catch (FileNotFoundException e)
     {
       usage();
-    }
-
-    // Printing titles for columns
-    System.out.printf("%n %8s %15s %15s %8s %10s %n %n", "Id Num", "Last", "First", "Type", "Time");
-
-    // Printing sorted list
-    for (BloodDonor d : donors)
-    {
-      System.out.printf("%8d %15s %15s %8s %10.1f %n", d.idNum, d.lastName, d.firstName, d.type, d.donationTime);
     }
   }
 

@@ -1,1 +1,4 @@
-
+74,Corvinas,Alexander,A+,18.1
+1011,Intervenus,Lestat,O-,18.2
+1111,Swan,Bella,B+,11.5
+1,The First,Dracula,A+,12.7

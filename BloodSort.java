@@ -141,12 +141,12 @@ public class BloodSort
   public static void printTable(ArrayList<BloodDonor> donors)
   {
     // Printing titles for columns
-    System.out.printf("%n %8s %15s %15s %8s %10s %n %n", "Id Num", "Last", "First", "Type", "Time");
+    System.out.printf("%n %7s    %-15s %-15s %-8s %-4s %n %n", "Id Num", "Last", "First", "Type", "Time");
 
     // Printing sorted list
     for (BloodDonor d : donors)
     {
-      System.out.printf("%8d %15s %15s %8s %10.1f %n", d.idNum, d.lastName, d.firstName, d.type, d.donationTime);
+      System.out.printf("%8d    %-15s %-15s %-8s %-4.1f %n", d.idNum, d.lastName, d.firstName, d.type, d.donationTime);
     }
   }
 }

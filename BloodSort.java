@@ -99,7 +99,7 @@ public class BloodSort
     System.out.println("Then, type in the name of the field you would like to sort by [id num, last, first, type, time]");
   }
 
-  public static void printTable()
+  public static void printTable(ArrayList<BloodDonor> donors)
   {
     // Printing titles for columns
     System.out.printf("%n %8s %15s %15s %8s %10s %n %n", "Id Num", "Last", "First", "Type", "Time");

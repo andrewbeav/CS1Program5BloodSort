@@ -39,57 +39,59 @@ public class BloodSort
       // Creating array list of blood donors
       ArrayList<BloodDonor> donors = new ArrayList<>();
 
-      // Looping through each line of input and adding those values to the donors ArrayList
-      while (file.hasNext())
+      try
       {
-        // Reading line from file
-        String line = file.nextLine();
-
-        // Creating array of strings
-        String[] values = line.split(",");
-
-        try
+        // Looping through each line of input and adding those values to the donors ArrayList
+        while (file.hasNext())
         {
-          // Creating new BloodDonor objects with the proper values and adding them
-          // to the donors ArrayList
-          BloodDonor donor = new BloodDonor(Integer.parseInt(values[0]), values[1], values[2], values[3], Double.parseDouble(values[4]));
-          donors.add(donor);
+          // Reading line from file
+          String line = file.nextLine();
+
+          // Creating array of strings
+          String[] values = line.split(",");
+
+            // Creating new BloodDonor objects with the proper values and adding them
+            // to the donors ArrayList
+            BloodDonor donor = new BloodDonor(Integer.parseInt(values[0]), values[1], values[2], values[3], Double.parseDouble(values[4]));
+            donors.add(donor);
         }
-        catch(ArrayIndexOutOfBoundsException e)
+
+        if (sortField.equalsIgnoreCase("id num"))
+        {
+          Collections.sort(donors, new IdComparator());
+          printTable(donors);
+        }
+        else if (sortField.equalsIgnoreCase("last"))
+        {
+          Collections.sort(donors, new LastNameComparator());
+          printTable(donors);
+        }
+        else if (sortField.equalsIgnoreCase("first"))
+        {
+          Collections.sort(donors, new FirstNameComparator());
+          printTable(donors);
+        }
+        else if (sortField.equalsIgnoreCase("type"))
+        {
+          Collections.sort(donors, new TypeComparator());
+          printTable(donors);
+        }
+        else if (sortField.equalsIgnoreCase("time"))
+        {
+          Collections.sort(donors, new DonationTimeComparator());
+          printTable(donors);
+        }
+        else
         {
           usage();
         }
       }
-
-      if (sortField.equalsIgnoreCase("id num"))
-      {
-        Collections.sort(donors, new IdComparator());
-        printTable(donors);
-      }
-      else if (sortField.equalsIgnoreCase("last"))
-      {
-        Collections.sort(donors, new LastNameComparator());
-        printTable(donors);
-      }
-      else if (sortField.equalsIgnoreCase("first"))
-      {
-        Collections.sort(donors, new FirstNameComparator());
-        printTable(donors);
-      }
-      else if (sortField.equalsIgnoreCase("type"))
-      {
-        Collections.sort(donors, new TypeComparator());
-        printTable(donors);
-      }
-      else if (sortField.equalsIgnoreCase("time"))
-      {
-        Collections.sort(donors, new DonationTimeComparator());
-        printTable(donors);
-      }
-      else
+      catch(ArrayIndexOutOfBoundsException e)
       {
         usage();
       }
+
+
     }
     catch (FileNotFoundException e)
     {

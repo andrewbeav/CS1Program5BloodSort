@@ -31,6 +31,17 @@ class FirstNameComparator implements Comparator<BloodDonor>
   }
 }
 
+class TypeComparator implements Comparator<BloodDonor>
+{
+  public int compare(BloodDonor a, BloodDonor b)
+  {
+    String aType = a.type;
+    String bType = a.type;
+    int comp = aType.compareTo(bType);
+    return comp;
+  }
+}
+
 public class BloodDonor
 {
   // Creating public variables to hold values

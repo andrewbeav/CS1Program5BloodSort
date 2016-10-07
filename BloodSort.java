@@ -1,3 +1,13 @@
+// =========================================================================
+// CS 1113 Program 5 : Blood Sort
+// Semester : Fall 2016
+//
+// Andrew Bevelhymer
+// 61049
+//
+// Description: Sorts list of donors based on selected info
+// =========================================================================
+
 import java.util.*;
 import java.io.*;
 

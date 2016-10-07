@@ -68,7 +68,7 @@ public class BloodSort
     // Printing sorted list
     for (BloodDonor d : donors)
     {
-      System.out.printf("%d %s %10s %s %f %n", d.idNum, d.lastName, d.firstName, d.type, d.donationTime);
+      System.out.printf("%8d %15s %15s %8s %10.1f %n", d.idNum, d.lastName, d.firstName, d.type, d.donationTime);
     }
   }
 

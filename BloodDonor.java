@@ -48,8 +48,8 @@ class DonationTimeComparator implements Comparator<BloodDonor>
 {
   public int compare(BloodDonor a, BloodDonor b)
   {
-    double aDonationTime = a.donationTime;
-    double bDonationTime = b.donationTime;
+    Double aDonationTime = a.donationTime;
+    Double bDonationTime = b.donationTime;
     int comp = aDonationTime.compareTo(bDonationTime);
     return comp;
   }

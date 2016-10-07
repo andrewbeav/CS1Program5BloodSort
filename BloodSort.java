@@ -40,4 +40,12 @@ public class BloodSort
       donors.add(donor);
     }
   }
+
+  public static void usage()
+  {
+    System.out.println("When prompted, enter a the name of the file with the
+                        file extension. Then, type in the name of the field
+                        you would like to sort by [id num, last, first, type,
+                        time]");
+  }
 }

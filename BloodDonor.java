@@ -1,5 +1,3 @@
-import java.util.*;
-
 public class BloodDonor
 {
   // Creating public variables to hold values
@@ -15,33 +13,5 @@ public class BloodDonor
     firstName = nameFirst;
     type = bloodType;
     donationTime = donateTime;
-  }
-
-  /*
-    "Getter" methods to get the values
-  */
-  public int getIdNum()
-  {
-    return idNum;
-  }
-
-  public String getLastName()
-  {
-    return lastName;
-  }
-
-  public String getFirstName()
-  {
-    return firstName;
-  }
-
-  public String getType()
-  {
-    return type;
-  }
-
-  public double getDonationTime()
-  {
-    return donationTime;
   }
 }

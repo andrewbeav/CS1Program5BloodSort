@@ -51,10 +51,10 @@ public class BloodSort
           // Creating array of strings
           String[] values = line.split(",");
 
-            // Creating new BloodDonor objects with the proper values and adding them
-            // to the donors ArrayList
-            BloodDonor donor = new BloodDonor(Integer.parseInt(values[0]), values[1], values[2], values[3], Double.parseDouble(values[4]));
-            donors.add(donor);
+          // Creating new BloodDonor objects with the proper values and adding them
+          // to the donors ArrayList
+          BloodDonor donor = new BloodDonor(Integer.parseInt(values[0]), values[1], values[2], values[3], Double.parseDouble(values[4]));
+          donors.add(donor);
         }
 
         // Sort by idNum if that's what the user entered

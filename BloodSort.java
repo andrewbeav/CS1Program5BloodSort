@@ -58,7 +58,7 @@ public class BloodSort
         }
 
         // Sort by idNum if that's what the user entered
-        if (sortField.equalsIgnoreCase("id num"))
+        if (sortField.equalsIgnoreCase("id num") || sortField.equalsIgnoreCase("id") || sortField.equalsIgnoreCase("idnum"))
         {
           // Sort donors ArrayList using the IdComparator class
           Collections.sort(donors, new IdComparator());
@@ -68,7 +68,7 @@ public class BloodSort
         }
 
         // Sort by lastName if that's what the user entered
-        else if (sortField.equalsIgnoreCase("last"))
+        else if (sortField.equalsIgnoreCase("last") || sortField.equalsIgnoreCase("lastname") || sortField.equalsIgnoreCase("last name"))
         {
           // Sort donors ArrayList using the LastNameComparator class
           Collections.sort(donors, new LastNameComparator());
@@ -78,7 +78,7 @@ public class BloodSort
         }
 
         // Sort by firstName if that's what the user entered
-        else if (sortField.equalsIgnoreCase("first"))
+        else if (sortField.equalsIgnoreCase("first") || sortField.equalsIgnoreCase("firstname") || sortField.equalsIgnoreCase("first name"))
         {
           // Sort donors ArrayList using the FirstNameComparator class
           Collections.sort(donors, new FirstNameComparator());
@@ -88,7 +88,7 @@ public class BloodSort
         }
 
         // Sort by bloodType if that's what the user entered
-        else if (sortField.equalsIgnoreCase("type"))
+        else if (sortField.equalsIgnoreCase("type") || sortField.equalsIgnoreCase("blood type") || sortField.equalsIgnoreCase("blood") || sortField.equalsIgnoreCase("bloodtype"))
         {
           // Sort donors ArrayList using the TypeComparator class
           Collections.sort(donors, new TypeComparator());
@@ -98,7 +98,7 @@ public class BloodSort
         }
 
         // Sort by donationTime if that's what the user entered
-        else if (sortField.equalsIgnoreCase("time"))
+        else if (sortField.equalsIgnoreCase("time") || sortField.equalsIgnoreCase("donationtime") || sortField.equalsIgnoreCase("donation time"))
         {
           // Sort donors ArrayList using DonationTimeComparator class
           Collections.sort(donors, new DonationTimeComparator());

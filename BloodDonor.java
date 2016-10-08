@@ -1,5 +1,3 @@
-import java.util.*;
-
 public class BloodDonor
 {
   // Creating public variables to hold values

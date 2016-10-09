@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
 
 public class Gui extends JFrame
 {
@@ -30,15 +31,15 @@ public class Gui extends JFrame
     add(resultsText);
 
     EventHandler handler = new EventHandler();
-    fileNameText.addActionListener(handler);
-    sortFieldText.addActionListener(handler);
     sortButton.addActionListener(handler);
-    resultsText.addActionListener(handler);
   }
 
   private class EventHandler implements ActionListener
   {
-    
+    public void actionPerformed(ActionEvent event)
+    {
+
+    }
   }
 
 }

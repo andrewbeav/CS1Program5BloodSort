@@ -8,6 +8,7 @@ public class Gui extends JFrame
   private JTextField fileNameText;
   private JTextField sortFieldText;
   private JButton sortButton;
+  private JTextArea resultsText;
 
   public Gui()
   {
@@ -19,11 +20,13 @@ public class Gui extends JFrame
     sortButton = new JButton("sort");
     fileNameTextLabel = new JLabel("File name: ");
     sortFieldTextLabel = new JLabel("Field to Sort by: ");
+    resultsText = new JTextArea();
 
     add(fileNameTextLabel);
     add(fileNameText);
     add(sortFieldTextLabel);
     add(sortFieldText);
     add(sortButton);
+    add(resultsText);
   }
 }

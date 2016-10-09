@@ -21,23 +21,6 @@ public class BloodSort
     gui.setSize(600, 500);
     gui.setVisible(true);
 
-    // Print info
-    System.out.println("Blood donor sorting program by Andrew Bevelhymer");
-
-    // Creating scanner
-    Scanner scan = new Scanner(System.in);
-
-    // Getting file name
-    System.out.print("File to be read: ");
-    String fileName = scan.nextLine();
-
-    // Add the file extension to fileName if it doesn't have contain it
-    if (!fileName.contains(".")) fileName += ".txt";
-
-    // Getting field to sort by
-    System.out.print("Field to sort by: ");
-    String sortField = scan.nextLine();
-
     // Try/Catch so the program doesn't crash when the user enters
     // a file that doesn't exist
     try

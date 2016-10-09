@@ -10,11 +10,17 @@
 
 import java.util.*;
 import java.io.*;
+import javax.swing.JFrame;
 
 public class BloodSort
 {
   public static void main(String[] args) throws IOException
   {
+    Gui gui = new Gui();
+    gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    gui.setSize(300, 200);
+    gui.setVisible(true);
+
     // Print info
     System.out.println("Blood donor sorting program by Andrew Bevelhymer");
 

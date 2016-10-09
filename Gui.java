@@ -36,9 +36,13 @@ public class Gui extends JFrame
 
   private class ButtonEventHandler implements ActionListener
   {
+    public String fileName;
+    public String sortField;
+
     public void actionPerformed(ActionEvent event)
     {
-
+      fileName = fileNameText.getText();
+      sortField = sortFieldText.getText();
     }
   }
 

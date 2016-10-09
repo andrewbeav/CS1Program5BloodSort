@@ -21,6 +21,9 @@ public class BloodSort
     gui.setSize(600, 500);
     gui.setVisible(true);
 
+    String fileName = Gui.fileName;
+    String sortField = Gui.sortField;
+
     // Try/Catch so the program doesn't crash when the user enters
     // a file that doesn't exist
     try

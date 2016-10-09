@@ -6,6 +6,9 @@ import java.io.*;
 
 public class Gui extends JFrame
 {
+  public static String fileName;
+  public static String sortField;
+
   private JLabel fileNameTextLabel;
   private JLabel sortFieldTextLabel;
   private JTextField fileNameText;
@@ -38,9 +41,6 @@ public class Gui extends JFrame
 
   private class ButtonEventHandler implements ActionListener
   {
-    public String fileName;
-    public String sortField;
-
     public void actionPerformed(ActionEvent event)
     {
       fileName = fileNameText.getText();

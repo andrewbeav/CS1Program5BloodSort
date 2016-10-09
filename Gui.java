@@ -25,10 +25,6 @@ public class Gui extends JFrame
     sortFieldTextLabel = new JLabel("Field to Sort by: ");
     resultsText = new JTextArea();
 
-    Font oldResultsFont = resultsText.getFont();
-    Font newResultsFont = new Font(oldResultsFont.getFontName(), oldResultsFont.getStyle(), oldResultsFont.getSize()+10);
-    resultsText.setFont(newResultsFont);
-
     add(fileNameTextLabel);
     add(fileNameText);
     add(sortFieldTextLabel);
@@ -46,8 +42,15 @@ public class Gui extends JFrame
     public String fileName;
     public String sortField;
 
+    public boolean isInputValid = true;
+
     public void actionPerformed(ActionEvent event)
     {
+      // Creating string to hold the usage statement
+      String usageStatement = String.format("Enter the name of the file and the field you would like to sort by in the appropriate field.%nThe file extension is optional.%n");
+      usageStatement += String.format("Make sure your file has the necessary values seperated by commas with no spaces. As in this:%n");
+      usageStatement += String.format("[Id Number],[Last Name],[First Name],[Blood Type],[Donation Time]%n");
+
       fileName = fileNameText.getText();
       sortField = sortFieldText.getText();
 
@@ -56,7 +59,16 @@ public class Gui extends JFrame
 
       sort();
 
-      resultsText.setText(results);
+      if (isInputValid == true)
+      {
+        Font oldResultsFont = resultsText.getFont();
+        Font newResultsFont = new Font(oldResultsFont.getFontName(), oldResultsFont.getStyle(), oldResultsFont.getSize()+10);
+        resultsText.setFont(newResultsFont);
+
+        resultsText.setText(results);
+      }
+      else resultsText.setText(usageStatement);
+
     }
 
     public void sort()
@@ -143,16 +155,19 @@ public class Gui extends JFrame
           // proper input
           else
           {
+            isInputValid = false;
             usage();
           }
         }
         catch(ArrayIndexOutOfBoundsException e)
         {
+          isInputValid = false;
           usage();
         }
       }
       catch (FileNotFoundException e)
       {
+        isInputValid = false;
         usage();
       }
     }

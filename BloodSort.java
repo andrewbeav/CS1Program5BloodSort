@@ -14,6 +14,8 @@ import javax.swing.JFrame;
 
 public class BloodSort
 {
+  public static String results;
+
   public static void main(String[] args) throws IOException
   {
     Gui gui = new Gui();

@@ -25,6 +25,10 @@ public class Gui extends JFrame
     sortFieldTextLabel = new JLabel("Field to Sort by: ");
     resultsText = new JTextArea();
 
+    Font oldResultsFont = resultsText.getFont();
+    Font newResultsFont = new Font(oldResultsFont.getFontName(), oldResultsFont.getStyle(), oldResultsFont.getSize()+10);
+    resultsText.setFont(newResultsFont);
+
     add(fileNameTextLabel);
     add(fileNameText);
     add(sortFieldTextLabel);
@@ -170,12 +174,12 @@ public class Gui extends JFrame
     {
       String table = "";
       // Printing titles for columns
-      table += String.format("%n %7s    %-15s %-15s %-8s %-4s %n %n", "Id Num", "Last", "First", "Type", "Time");
+      table += String.format("%n %-7s    %-15s %-15s %-8s %-4s %n %n", "Id Num", "Last", "First", "Type", "Time");
 
       // Printing sorted list
       for (BloodDonor d : donors)
       {
-        table += String.format("%8d    %-15s %-15s %-8s %-4.1f %n", d.idNum, d.lastName, d.firstName, d.type, d.donationTime);
+        table += String.format("%-8d    %-15s %-15s %-8s %-4.1f %n", d.idNum, d.lastName, d.firstName, d.type, d.donationTime);
       }
 
       return table;

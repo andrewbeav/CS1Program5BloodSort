@@ -30,11 +30,11 @@ public class Gui extends JFrame
     add(sortButton);
     add(resultsText);
 
-    EventHandler handler = new EventHandler();
-    sortButton.addActionListener(handler);
+    ButtonEventHandler buttonHandler = new ButtonEventHandler();
+    sortButton.addActionListener(buttonHandler);
   }
 
-  private class EventHandler implements ActionListener
+  private class ButtonEventHandler implements ActionListener
   {
     public void actionPerformed(ActionEvent event)
     {

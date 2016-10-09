@@ -9,7 +9,7 @@ public class Gui extends JFrame
 
   public Gui()
   {
-    this("Blood Donor Sorting Progam");
+    super("Blood Donor Sorting Progam");
     setLayout(new FlowLayout());
 
     fileNameText = new JTextField(10);

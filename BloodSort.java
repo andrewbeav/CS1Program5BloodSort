@@ -132,7 +132,7 @@ public class BloodSort
   public static void usage()
   {
     System.out.println();
-    System.out.println("When prompted, enter a the name of the file with the file extension.");
+    System.out.println("When prompted, enter a the name of the file. The file extension is optional");
     System.out.println("Then, type in the name of the field you would like to sort by [id num, last, first, type, time]");
     System.out.println();
     System.out.println("Make sure your file has the necessary values seperated by commas with no spaces. As in this:");

@@ -25,6 +25,9 @@ public class BloodSort
     System.out.print("File to be read: ");
     String fileName = scan.nextLine();
 
+    // Add the file extension to fileName if it doesn't have contain it
+    if (!fileName.contains(".")) fileName += ".txt";
+
     // Getting field to sort by
     System.out.print("Field to sort by: ");
     String sortField = scan.nextLine();

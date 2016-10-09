@@ -1,6 +1,8 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.*;
+import java.io.*;
 
 public class Gui extends JFrame
 {
@@ -43,6 +45,9 @@ public class Gui extends JFrame
     {
       fileName = fileNameText.getText();
       sortField = sortFieldText.getText();
+
+      // Add the file extension to fileName if it doesn't have contain it
+      if (!fileName.contains(".")) fileName += ".txt";
     }
   }
 

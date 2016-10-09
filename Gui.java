@@ -28,5 +28,17 @@ public class Gui extends JFrame
     add(sortFieldText);
     add(sortButton);
     add(resultsText);
+
+    EventHandler handler = new EventHandler();
+    fileNameText.addActionListener(handler);
+    sortFieldText.addActionListener(handler);
+    sortButton.addActionListener(handler);
+    resultsText.addActionListener(handler);
   }
+
+  private class EventHandler implements ActionListener
+  {
+    
+  }
+
 }

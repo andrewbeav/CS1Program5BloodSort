@@ -7,6 +7,7 @@ import java.io.*;
 public class Gui extends JFrame
 {
   private String[] columnTitles = {"Id Num", "Last", "First", "Blood Type", "Donation Time"};
+  private Object[][] data;
 
   private JLabel fileNameTextLabel;
   private JLabel sortFieldTextLabel;

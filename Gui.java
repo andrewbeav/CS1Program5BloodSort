@@ -30,7 +30,7 @@ public class Gui extends JFrame
     add(sortFieldTextLabel);
     add(sortFieldText);
     add(sortButton);
-    add(resultsText);
+    add(resultsTable);
 
     ButtonEventHandler buttonHandler = new ButtonEventHandler();
     sortButton.addActionListener(buttonHandler);

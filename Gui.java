@@ -189,9 +189,21 @@ public class Gui extends JFrame
     }
 
     // Method used to print the sorted list as a table
-    public String printTable(ArrayList<BloodDonor> donors)
+    public Object[][] printTable(ArrayList<BloodDonor> donors)
     {
-      Object[][] data = new Object[5][donors.size()];
+      Object[][] data = new Object[5][donors.size();];
+
+      int i = 0;
+      for (BloodDonor donor : donors)
+      {
+        data[i][0] = donor.idNum;
+        data[i][1] = donor.lastName;
+        data[i][2] = donor.firstName;
+        data[i][3] = donor.type;
+        data[i][4] = donor.donationTime;
+        i++;
+      }
+      return data;
     }
   }
 

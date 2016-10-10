@@ -191,7 +191,7 @@ public class Gui extends JFrame
     // Method used to print the sorted list as a table
     public String printTable(ArrayList<BloodDonor> donors)
     {
-      Object[][] data = new Object[5][d.size()];
+      Object[][] data = new Object[5][donors.size()];
     }
   }
 

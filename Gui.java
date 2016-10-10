@@ -63,15 +63,7 @@ public class Gui extends JFrame
 
       sort();
 
-      if (isInputValid == true)
-      {
-        Font oldResultsFont = resultsText.getFont();
-        Font newResultsFont = new Font(oldResultsFont.getFontName(), oldResultsFont.getStyle(), oldResultsFont.getSize()+10);
-        resultsText.setFont(newResultsFont);
-
-        resultsText.setText(results);
-      }
-      else resultsText.setText(usageStatement);
+      
 
     }
 

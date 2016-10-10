@@ -11,7 +11,7 @@ public class Gui extends JFrame
   private JTextField fileNameText;
   private JTextField sortFieldText;
   private JButton sortButton;
-  private JTextArea resultsText;
+  private JTable resultsTable;
 
   public Gui()
   {

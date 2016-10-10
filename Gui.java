@@ -42,7 +42,7 @@ public class Gui extends JFrame
 
   private class ButtonEventHandler implements ActionListener
   {
-    public String results;
+    public Object[][] results;
     public String fileName;
     public String sortField;
 
@@ -63,7 +63,7 @@ public class Gui extends JFrame
 
       sort();
 
-      
+      System.out.println(results);
 
     }
 

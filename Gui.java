@@ -7,7 +7,6 @@ import java.io.*;
 public class Gui extends JFrame
 {
   private String[] columnTitles = {"Id Num", "Last", "First", "Blood Type", "Donation Time"};
-  private Object[][] data;
 
   private JLabel fileNameTextLabel;
   private JLabel sortFieldTextLabel;
@@ -192,17 +191,7 @@ public class Gui extends JFrame
     // Method used to print the sorted list as a table
     public String printTable(ArrayList<BloodDonor> donors)
     {
-      String table = "";
-      // Printing titles for columns
-      table += String.format("%n %-7s    %-15s %-15s %-8s %-4s %n %n", "Id Num", "Last", "First", "Type", "Time");
-
-      // Printing sorted list
-      for (BloodDonor d : donors)
-      {
-        table += String.format("%-8d    %-15s %-15s %-8s %-4.1f %n", d.idNum, d.lastName, d.firstName, d.type, d.donationTime);
-      }
-
-      return table;
+      Object[][] data = new Object[5][d.size()];
     }
   }
 

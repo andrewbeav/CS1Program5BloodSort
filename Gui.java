@@ -33,6 +33,26 @@ public class Gui extends JFrame
     add(sortButton);
     add(resultsText);
 
+    // Initializing buttons and adding them to the Gui
+    selectId = new JRadioButton("Id Number", true);
+    selectLast = new JRadioButton("Last Name", false);
+    selectFirst = new JRadioButton("First Name", false);
+    selectType = new JRadioButton("Blood Type", false);
+    selectTime = new JRadioButton("Donation Time", false);
+    add(selectId);
+    add(selectLast);
+    add(selectFirst);
+    add(selectType);
+    add(selectTime);
+
+    // Initializing button group and adding button to the group
+    buttonGroup = new buttonGroup();
+    group.add(selectId);
+    group.add(selectLast);
+    group.add(selectFirst);
+    group.add(selectType);
+    group.add(selectTime);
+
     ButtonEventHandler buttonHandler = new ButtonEventHandler();
     sortButton.addActionListener(buttonHandler);
 

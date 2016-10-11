@@ -10,6 +10,7 @@ public class Gui extends JFrame
   private JButton sortButton;
   private JTextArea resultsText;
   private JFileChooser fileChooser;
+  private JLabel sortFieldLabel;
 
   private JRadioButton selectId;
   private JRadioButton selectFirst;
@@ -33,6 +34,9 @@ public class Gui extends JFrame
     add(getFileButton);
     add(sortButton);
     add(resultsText);
+
+    sortFieldLabel = new JLabel("Field to Sort by:");
+    add(sortFieldLabel);
 
     // Initializing buttons and adding them to the Gui
     selectId = new JRadioButton("Id Number", true);

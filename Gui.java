@@ -45,7 +45,12 @@ public class Gui extends JFrame
   {
     public actionPerformed(ActionEvent event)
     {
-
+      JButton open = new JButton();
+      fileChooser = new JFileChooser();
+      fileChooser.setCurrentDirectory(new File(System.getProperty("user.home")));
+      fileChooser.setDialogTitle("Finding file");
+      if (fileChooser.showOpenDialog(open) == JFileChooser.APPROVE_OPTION);
+      pathName = fileChooser.getSelectedFile().getAbsolutePath();
     }
   }
 

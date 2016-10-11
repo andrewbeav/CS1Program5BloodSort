@@ -190,7 +190,7 @@ public class Gui extends JFrame
     {
       String table = "";
       // Printing titles for columns
-      table += String.format("%n %-7s    %-15s %-15s %-8s %-4s %n %n", "Id Num", "Last", "First", "Type", "Time");
+      table += String.format("%-8s    %-15s %-15s %-8s %-4s %n %n", "Id Num", "Last", "First", "Type", "Time");
 
       // Printing sorted list
       for (BloodDonor d : donors)

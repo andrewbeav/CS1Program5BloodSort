@@ -49,7 +49,7 @@ public class Gui extends JFrame
       fileChooser.setCurrentDirectory(new File(System.getProperty("user.home")));
       fileChooser.setDialogTitle("Finding file");
       if (fileChooser.showOpenDialog(open) == JFileChooser.APPROVE_OPTION);
-      pathName = fileChooser.getSelectedFile().getAbsolutePath();
+      filePath = fileChooser.getSelectedFile().getAbsolutePath();
     }
   }
 

@@ -13,6 +13,8 @@ public class Gui extends JFrame
   private JTextArea resultsText;
   private JFileChooser fileChooser;
 
+  public String filePath;
+
   public Gui()
   {
     super("Blood Donor Sorting Progam");
@@ -43,7 +45,7 @@ public class Gui extends JFrame
   {
     public actionPerformed(ActionEvent event)
     {
-      
+
     }
   }
 

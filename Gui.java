@@ -120,8 +120,6 @@ public class Gui extends JFrame
         resultsText.setText(results);
       }
       else resultsText.setText(usageStatement);
-      System.out.println(sortField);
-
     }
 
     public void sort()

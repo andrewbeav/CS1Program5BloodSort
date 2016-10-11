@@ -90,7 +90,7 @@ public class Gui extends JFrame
       try
       {
         // Creating new scanner to read in from file
-        Scanner file = new Scanner(new File(fileName));
+        Scanner file = new Scanner(new File(filePath));
 
         // Creating array list of blood donors
         ArrayList<BloodDonor> donors = new ArrayList<>();

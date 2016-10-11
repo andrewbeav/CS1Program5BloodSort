@@ -68,11 +68,7 @@ public class Gui extends JFrame
       usageStatement += String.format("Make sure your file has the necessary values seperated by commas with no spaces. As in this:%n");
       usageStatement += String.format("[Id Number],[Last Name],[First Name],[Blood Type],[Donation Time]%n");
 
-      fileName = fileNameText.getText();
       sortField = sortFieldText.getText();
-
-      // Add the file extension to fileName if it doesn't have contain it
-      if (!fileName.contains(".")) fileName += ".txt";
 
       sort();
 

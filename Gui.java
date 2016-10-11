@@ -6,7 +6,6 @@ import java.io.*;
 
 public class Gui extends JFrame
 {
-  private JLabel fileNameTextLabel;
   private JLabel sortFieldTextLabel;
   private JButton getFileButton;
   private JTextField sortFieldText;
@@ -19,14 +18,13 @@ public class Gui extends JFrame
     super("Blood Donor Sorting Progam");
     setLayout(new FlowLayout());
 
-    fileNameText = new JTextField(10);
+    getFileButton = new JButton("Select Input File");
     sortFieldText = new JTextField(10);
     sortButton = new JButton("sort");
     fileNameTextLabel = new JLabel("File name: ");
     sortFieldTextLabel = new JLabel("Field to Sort by: ");
     resultsText = new JTextArea();
 
-    add(fileNameTextLabel);
     add(fileNameText);
     add(sortFieldTextLabel);
     add(sortFieldText);

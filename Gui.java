@@ -6,14 +6,21 @@ import java.io.*;
 
 public class Gui extends JFrame
 {
-  private JLabel sortFieldTextLabel;
   private JButton getFileButton;
-  private JTextField sortFieldText;
   private JButton sortButton;
   private JTextArea resultsText;
   private JFileChooser fileChooser;
+  private JLabel sortFieldLabel;
+
+  private JRadioButton selectId;
+  private JRadioButton selectFirst;
+  private JRadioButton selectLast;
+  private JRadioButton selectType;
+  private JRadioButton selectTime;
+  private ButtonGroup buttonGroup;
 
   public String filePath;
+  public String sortField;
 
   public Gui()
   {
@@ -21,23 +28,60 @@ public class Gui extends JFrame
     setLayout(new FlowLayout());
 
     getFileButton = new JButton("Select Input File");
-    sortFieldText = new JTextField(10);
     sortButton = new JButton("sort");
-    sortFieldTextLabel = new JLabel("Field to Sort by: ");
-    resultsText = new JTextArea();
+    resultsText = new JTextArea(10, 50);
 
     add(getFileButton);
-    add(sortFieldTextLabel);
-    add(sortFieldText);
     add(sortButton);
     add(resultsText);
 
+    sortFieldLabel = new JLabel("Field to Sort by:");
+    add(sortFieldLabel);
+
+    // Initializing buttons and adding them to the Gui
+    selectId = new JRadioButton("Id Number", true);
+    selectLast = new JRadioButton("Last Name", false);
+    selectFirst = new JRadioButton("First Name", false);
+    selectType = new JRadioButton("Blood Type", false);
+    selectTime = new JRadioButton("Donation Time", false);
+    add(selectId);
+    add(selectLast);
+    add(selectFirst);
+    add(selectType);
+    add(selectTime);
+
+    // Initializing button group and adding button to the group
+    buttonGroup = new ButtonGroup();
+    buttonGroup.add(selectId);
+    buttonGroup.add(selectLast);
+    buttonGroup.add(selectFirst);
+    buttonGroup.add(selectType);
+    buttonGroup.add(selectTime);
+
+    selectId.addItemListener(new RadioButtonEventHandler("id"));
+    selectLast.addItemListener(new RadioButtonEventHandler("last"));
+    selectFirst.addItemListener(new RadioButtonEventHandler("first"));
+    selectType.addItemListener(new RadioButtonEventHandler("type"));
+    selectTime.addItemListener(new RadioButtonEventHandler("time"));
+
     ButtonEventHandler buttonHandler = new ButtonEventHandler();
     sortButton.addActionListener(buttonHandler);
-    sortFieldText.addActionListener(buttonHandler);
 
     BrowseEventHandler browseHandler = new BrowseEventHandler();
     getFileButton.addActionListener(browseHandler);
+  }
+
+  private class RadioButtonEventHandler implements ItemListener
+  {
+    private String results;
+    public RadioButtonEventHandler(String field)
+    {
+      results = field;
+    }
+    public void itemStateChanged(ItemEvent event)
+    {
+      sortField = results;
+    }
   }
 
   private class BrowseEventHandler implements ActionListener
@@ -47,7 +91,7 @@ public class Gui extends JFrame
       JButton open = new JButton();
       fileChooser = new JFileChooser();
       fileChooser.setCurrentDirectory(new File(System.getProperty("user.home")));
-      fileChooser.setDialogTitle("Finding file");
+      fileChooser.setDialogTitle("Select File to be Sorted");
       if (fileChooser.showOpenDialog(open) == JFileChooser.APPROVE_OPTION);
       filePath = fileChooser.getSelectedFile().getAbsolutePath();
     }
@@ -56,8 +100,6 @@ public class Gui extends JFrame
   private class ButtonEventHandler implements ActionListener
   {
     public String results;
-    public String fileName;
-    public String sortField;
 
     public boolean isInputValid = true;
 
@@ -67,8 +109,6 @@ public class Gui extends JFrame
       String usageStatement = String.format("Enter the name of the file and the field you would like to sort by in the appropriate field.%nThe file extension is optional.%n");
       usageStatement += String.format("Make sure your file has the necessary values seperated by commas with no spaces. As in this:%n");
       usageStatement += String.format("[Id Number],[Last Name],[First Name],[Blood Type],[Donation Time]%n");
-
-      sortField = sortFieldText.getText();
 
       sort();
 
@@ -80,7 +120,6 @@ public class Gui extends JFrame
         resultsText.setText(results);
       }
       else resultsText.setText(usageStatement);
-
     }
 
     public void sort()
@@ -114,7 +153,7 @@ public class Gui extends JFrame
           }
 
           // Sort by idNum if that's what the user entered
-          if (sortField.equalsIgnoreCase("id num") || sortField.equalsIgnoreCase("id") || sortField.equalsIgnoreCase("idnum"))
+          if (sortField.equals("id"))
           {
             // Sort donors ArrayList using the IdComparator class
             Collections.sort(donors, new IdComparator());
@@ -124,7 +163,7 @@ public class Gui extends JFrame
           }
 
           // Sort by lastName if that's what the user entered
-          else if (sortField.equalsIgnoreCase("last") || sortField.equalsIgnoreCase("lastname") || sortField.equalsIgnoreCase("last name"))
+          else if (sortField.equals("last"))
           {
             // Sort donors ArrayList using the LastNameComparator class
             Collections.sort(donors, new LastNameComparator());
@@ -134,7 +173,7 @@ public class Gui extends JFrame
           }
 
           // Sort by firstName if that's what the user entered
-          else if (sortField.equalsIgnoreCase("first") || sortField.equalsIgnoreCase("firstname") || sortField.equalsIgnoreCase("first name"))
+          else if (sortField.equals("first"))
           {
             // Sort donors ArrayList using the FirstNameComparator class
             Collections.sort(donors, new FirstNameComparator());
@@ -144,7 +183,7 @@ public class Gui extends JFrame
           }
 
           // Sort by bloodType if that's what the user entered
-          else if (sortField.equalsIgnoreCase("type") || sortField.equalsIgnoreCase("blood type") || sortField.equalsIgnoreCase("blood") || sortField.equalsIgnoreCase("bloodtype"))
+          else if (sortField.equals("type"))
           {
             // Sort donors ArrayList using the TypeComparator class
             Collections.sort(donors, new TypeComparator());
@@ -154,7 +193,7 @@ public class Gui extends JFrame
           }
 
           // Sort by donationTime if that's what the user entered
-          else if (sortField.equalsIgnoreCase("time") || sortField.equalsIgnoreCase("donationtime") || sortField.equalsIgnoreCase("donation time"))
+          else if (sortField.equals("time"))
           {
             // Sort donors ArrayList using DonationTimeComparator class
             Collections.sort(donors, new DonationTimeComparator());

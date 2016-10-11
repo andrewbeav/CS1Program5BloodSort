@@ -108,8 +108,6 @@ public class Gui extends JFrame
       usageStatement += String.format("Make sure your file has the necessary values seperated by commas with no spaces. As in this:%n");
       usageStatement += String.format("[Id Number],[Last Name],[First Name],[Blood Type],[Donation Time]%n");
 
-      sortField = sortFieldText.getText();
-
       sort();
 
       if (isInputValid == true)

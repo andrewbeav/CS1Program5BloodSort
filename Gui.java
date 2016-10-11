@@ -53,6 +53,12 @@ public class Gui extends JFrame
     group.add(selectType);
     group.add(selectTime);
 
+    selectId.addItemListener(new RadioButtonEventHandler("id"));
+    selectLast.addItemListener(new RadioButtonEventHandler("last"));
+    selectLast.addItemListener(new RadioButtonEventHandler("first"));
+    selectType.addItemListener(new RadioButtonEventHandler("type"));
+    selectTime.addItemListener(new RadioButtonEventHandler("time"));
+
     ButtonEventHandler buttonHandler = new ButtonEventHandler();
     sortButton.addActionListener(buttonHandler);
 

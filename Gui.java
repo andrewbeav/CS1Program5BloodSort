@@ -6,9 +6,7 @@ import java.io.*;
 
 public class Gui extends JFrame
 {
-  private JLabel sortFieldTextLabel;
   private JButton getFileButton;
-  private JTextField sortFieldText;
   private JButton sortButton;
   private JTextArea resultsText;
   private JFileChooser fileChooser;
@@ -21,20 +19,15 @@ public class Gui extends JFrame
     setLayout(new FlowLayout());
 
     getFileButton = new JButton("Select Input File");
-    sortFieldText = new JTextField(10);
     sortButton = new JButton("sort");
-    sortFieldTextLabel = new JLabel("Field to Sort by: ");
     resultsText = new JTextArea();
 
     add(getFileButton);
-    add(sortFieldTextLabel);
-    add(sortFieldText);
     add(sortButton);
     add(resultsText);
 
     ButtonEventHandler buttonHandler = new ButtonEventHandler();
     sortButton.addActionListener(buttonHandler);
-    sortFieldText.addActionListener(buttonHandler);
 
     BrowseEventHandler browseHandler = new BrowseEventHandler();
     getFileButton.addActionListener(browseHandler);

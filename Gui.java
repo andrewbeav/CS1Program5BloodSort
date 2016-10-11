@@ -25,7 +25,7 @@ public class Gui extends JFrame
     sortFieldTextLabel = new JLabel("Field to Sort by: ");
     resultsText = new JTextArea();
 
-    add(fileNameText);
+    add(getFileButton);
     add(sortFieldTextLabel);
     add(sortFieldText);
     add(sortButton);

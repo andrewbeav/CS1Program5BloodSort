@@ -19,6 +19,7 @@ public class Gui extends JFrame
   private ButtonGroup buttonGroup;
 
   public String filePath;
+  public String sortField;
 
   public Gui()
   {

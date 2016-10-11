@@ -48,11 +48,11 @@ public class Gui extends JFrame
 
     // Initializing button group and adding button to the group
     buttonGroup = new ButtonGroup();
-    buttonGroupgroup.add(selectId);
+    buttonGroup.add(selectId);
     buttonGroup.add(selectLast);
-    buttonGroupgroup.add(selectFirst);
-    buttonGroupgroup.add(selectType);
-    buttonGroupgroup.add(selectTime);
+    buttonGroup.add(selectFirst);
+    buttonGroup.add(selectType);
+    buttonGroup.add(selectTime);
 
     selectId.addItemListener(new RadioButtonEventHandler("id"));
     selectLast.addItemListener(new RadioButtonEventHandler("last"));

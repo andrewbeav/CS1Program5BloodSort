@@ -95,6 +95,8 @@ public class Gui extends JFrame
 
   private class ButtonEventHandler implements ActionListener
   {
+    public String results;
+
     public boolean isInputValid = true;
 
     public void actionPerformed(ActionEvent event)

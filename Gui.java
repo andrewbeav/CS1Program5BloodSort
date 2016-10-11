@@ -56,7 +56,7 @@ public class Gui extends JFrame
 
     selectId.addItemListener(new RadioButtonEventHandler("id"));
     selectLast.addItemListener(new RadioButtonEventHandler("last"));
-    selectLast.addItemListener(new RadioButtonEventHandler("first"));
+    selectFirst.addItemListener(new RadioButtonEventHandler("first"));
     selectType.addItemListener(new RadioButtonEventHandler("type"));
     selectTime.addItemListener(new RadioButtonEventHandler("time"));
 

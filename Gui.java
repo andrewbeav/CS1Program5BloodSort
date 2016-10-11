@@ -91,7 +91,7 @@ public class Gui extends JFrame
       JButton open = new JButton();
       fileChooser = new JFileChooser();
       fileChooser.setCurrentDirectory(new File(System.getProperty("user.home")));
-      fileChooser.setDialogTitle("Finding file");
+      fileChooser.setDialogTitle("Select File to be Sorted");
       if (fileChooser.showOpenDialog(open) == JFileChooser.APPROVE_OPTION);
       filePath = fileChooser.getSelectedFile().getAbsolutePath();
     }

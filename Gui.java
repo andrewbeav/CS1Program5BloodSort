@@ -67,6 +67,19 @@ public class Gui extends JFrame
     getFileButton.addActionListener(browseHandler);
   }
 
+  private class RadioButtonEventHandler implements ItemListener
+  {
+    private String results;
+    public RadioButtonEventHandler(String field)
+    {
+      results = field;
+    }
+    public void itemStateChanged(ItemEvent event)
+    {
+      sortField = results;
+    }
+  }
+
   private class BrowseEventHandler implements ActionListener
   {
     public void actionPerformed(ActionEvent event)

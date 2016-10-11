@@ -29,7 +29,7 @@ public class Gui extends JFrame
 
     getFileButton = new JButton("Select Input File");
     sortButton = new JButton("sort");
-    resultsText = new JTextArea();
+    resultsText = new JTextArea(10, 50);
 
     add(getFileButton);
     add(sortButton);

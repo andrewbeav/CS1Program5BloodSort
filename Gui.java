@@ -11,6 +11,13 @@ public class Gui extends JFrame
   private JTextArea resultsText;
   private JFileChooser fileChooser;
 
+  private JRadioButton selectId;
+  private JRadioButton selectFirst;
+  private JRadioButton selectLast;
+  private JRadioButton selectType;
+  private JRadioButton selectTime;
+  private ButtonGroup buttonGroup;
+
   public String filePath;
 
   public Gui()

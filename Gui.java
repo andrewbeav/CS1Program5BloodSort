@@ -8,7 +8,7 @@ public class Gui extends JFrame
 {
   private JLabel fileNameTextLabel;
   private JLabel sortFieldTextLabel;
-  private JTextField fileNameText;
+  private JButton getFileButton;
   private JTextField sortFieldText;
   private JButton sortButton;
   private JTextArea resultsText;

@@ -23,7 +23,6 @@ public class Gui extends JFrame
     getFileButton = new JButton("Select Input File");
     sortFieldText = new JTextField(10);
     sortButton = new JButton("sort");
-    fileNameTextLabel = new JLabel("File name: ");
     sortFieldTextLabel = new JLabel("Field to Sort by: ");
     resultsText = new JTextArea();
 
@@ -43,7 +42,7 @@ public class Gui extends JFrame
 
   private class BrowseEventHandler implements ActionListener
   {
-    public actionPerformed(ActionEvent event)
+    public void actionPerformed(ActionEvent event)
     {
       JButton open = new JButton();
       fileChooser = new JFileChooser();

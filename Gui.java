@@ -95,10 +95,6 @@ public class Gui extends JFrame
 
   private class ButtonEventHandler implements ActionListener
   {
-    public String results;
-    public String fileName;
-    public String sortField;
-
     public boolean isInputValid = true;
 
     public void actionPerformed(ActionEvent event)
@@ -118,6 +114,7 @@ public class Gui extends JFrame
         resultsText.setText(results);
       }
       else resultsText.setText(usageStatement);
+      System.out.println(sortField);
 
     }
 

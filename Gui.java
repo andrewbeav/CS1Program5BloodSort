@@ -34,6 +34,17 @@ public class Gui extends JFrame
     ButtonEventHandler buttonHandler = new ButtonEventHandler();
     sortButton.addActionListener(buttonHandler);
     sortFieldText.addActionListener(buttonHandler);
+
+    BrowseEventHandler browseHandler = new BrowseEventHandler();
+    getFileButton.addActionListener(browseHandler);
+  }
+
+  private class BrowseEventHandler implements ActionListener
+  {
+    public actionPerformed(ActionEvent event)
+    {
+      
+    }
   }
 
   private class ButtonEventHandler implements ActionListener

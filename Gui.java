@@ -6,27 +6,27 @@ import java.io.*;
 
 public class Gui extends JFrame
 {
-  private JLabel fileNameTextLabel;
   private JLabel sortFieldTextLabel;
-  private JTextField fileNameText;
+  private JButton getFileButton;
   private JTextField sortFieldText;
   private JButton sortButton;
   private JTextArea resultsText;
+  private JFileChooser fileChooser;
+
+  public String filePath;
 
   public Gui()
   {
     super("Blood Donor Sorting Progam");
     setLayout(new FlowLayout());
 
-    fileNameText = new JTextField(10);
+    getFileButton = new JButton("Select Input File");
     sortFieldText = new JTextField(10);
     sortButton = new JButton("sort");
-    fileNameTextLabel = new JLabel("File name: ");
     sortFieldTextLabel = new JLabel("Field to Sort by: ");
     resultsText = new JTextArea();
 
-    add(fileNameTextLabel);
-    add(fileNameText);
+    add(getFileButton);
     add(sortFieldTextLabel);
     add(sortFieldText);
     add(sortButton);
@@ -35,7 +35,22 @@ public class Gui extends JFrame
     ButtonEventHandler buttonHandler = new ButtonEventHandler();
     sortButton.addActionListener(buttonHandler);
     sortFieldText.addActionListener(buttonHandler);
-    fileNameText.addActionListener(buttonHandler);
+
+    BrowseEventHandler browseHandler = new BrowseEventHandler();
+    getFileButton.addActionListener(browseHandler);
+  }
+
+  private class BrowseEventHandler implements ActionListener
+  {
+    public void actionPerformed(ActionEvent event)
+    {
+      JButton open = new JButton();
+      fileChooser = new JFileChooser();
+      fileChooser.setCurrentDirectory(new File(System.getProperty("user.home")));
+      fileChooser.setDialogTitle("Finding file");
+      if (fileChooser.showOpenDialog(open) == JFileChooser.APPROVE_OPTION);
+      filePath = fileChooser.getSelectedFile().getAbsolutePath();
+    }
   }
 
   private class ButtonEventHandler implements ActionListener
@@ -53,11 +68,7 @@ public class Gui extends JFrame
       usageStatement += String.format("Make sure your file has the necessary values seperated by commas with no spaces. As in this:%n");
       usageStatement += String.format("[Id Number],[Last Name],[First Name],[Blood Type],[Donation Time]%n");
 
-      fileName = fileNameText.getText();
       sortField = sortFieldText.getText();
-
-      // Add the file extension to fileName if it doesn't have contain it
-      if (!fileName.contains(".")) fileName += ".txt";
 
       sort();
 
@@ -79,7 +90,7 @@ public class Gui extends JFrame
       try
       {
         // Creating new scanner to read in from file
-        Scanner file = new Scanner(new File(fileName));
+        Scanner file = new Scanner(new File(filePath));
 
         // Creating array list of blood donors
         ArrayList<BloodDonor> donors = new ArrayList<>();

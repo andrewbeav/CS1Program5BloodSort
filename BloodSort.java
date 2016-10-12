@@ -19,6 +19,7 @@ public class BloodSort
     Gui gui = new Gui();
     gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     gui.setSize(600, 500);
+    gui.setResizable(false);
     gui.setVisible(true);
   }
 }

@@ -39,7 +39,7 @@ public class Gui extends JFrame
     add(sortFieldLabel);
 
     // Initializing buttons and adding them to the Gui
-    selectId = new JRadioButton("Id Number", true);
+    selectId = new JRadioButton("Id Number", false);
     selectLast = new JRadioButton("Last Name", false);
     selectFirst = new JRadioButton("First Name", false);
     selectType = new JRadioButton("Blood Type", false);

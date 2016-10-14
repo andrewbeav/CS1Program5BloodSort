@@ -123,7 +123,10 @@ public class Gui extends JFrame
             BloodDonor donor = new BloodDonor(Integer.parseInt(values[0]), values[1], values[2], values[3], Double.parseDouble(values[4]));
             donors.add(donor);
           }
-          printTable(donors);
+          Font newResultsFont = new Font("monospaced", Font.PLAIN, 16);
+          resultsText.setFont(newResultsFont);
+
+          resultsText.setText(printTable(donors));
         }
         catch(ArrayIndexOutOfBoundsException e)
         {

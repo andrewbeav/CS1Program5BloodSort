@@ -98,6 +98,11 @@ public class Gui extends JFrame
       fileChooser.setDialogTitle("Select File to be Sorted");
       if (fileChooser.showOpenDialog(open) == JFileChooser.APPROVE_OPTION);
       filePath = fileChooser.getSelectedFile().getAbsolutePath();
+
+      ArrayList<BloodDonor> donors = createList(filePath);
+      Font newResultsFont = new Font("monospaced", Font.PLAIN, 16);
+      resultsText.setFont(newResultsFont);
+      resultsText.setText(printTable(donors));
     }
   }
 
@@ -128,132 +133,132 @@ public class Gui extends JFrame
 
     public void sort()
     {
-      // Try/Catch so the program doesn't crash when the user enters
-      // a file that doesn't exist
-      try
+      ArrayList<BloodDonor> donors = createList(filePath);
+      // Sort by idNum if that's what the user entered
+      if (sortField.equals("id"))
       {
-        // Creating new scanner to read in from file
-        Scanner file = new Scanner(new File(filePath));
+        // Sort donors ArrayList using the IdComparator class
+        Collections.sort(donors, new IdComparator());
 
-        // Creating array list of blood donors
-        ArrayList<BloodDonor> donors = new ArrayList<>();
-
-        // Another try/catch to deal with the file not having proper input
-        try
-        {
-          // Looping through each line of input and adding those values to the donors ArrayList
-          while (file.hasNext())
-          {
-            // Reading line from file
-            String line = file.nextLine();
-
-            // Creating array of strings
-            String[] values = line.split(",");
-
-            // Creating new BloodDonor objects with the proper values and adding them
-            // to the donors ArrayList
-            BloodDonor donor = new BloodDonor(Integer.parseInt(values[0]), values[1], values[2], values[3], Double.parseDouble(values[4]));
-            donors.add(donor);
-          }
-
-          // Sort by idNum if that's what the user entered
-          if (sortField.equals("id"))
-          {
-            // Sort donors ArrayList using the IdComparator class
-            Collections.sort(donors, new IdComparator());
-
-            // Print the sorted list
-            results = printTable(donors);
-          }
-
-          // Sort by lastName if that's what the user entered
-          else if (sortField.equals("last"))
-          {
-            // Sort donors ArrayList using the LastNameComparator class
-            Collections.sort(donors, new LastNameComparator());
-
-            // Print the sorted list
-            results = printTable(donors);
-          }
-
-          // Sort by firstName if that's what the user entered
-          else if (sortField.equals("first"))
-          {
-            // Sort donors ArrayList using the FirstNameComparator class
-            Collections.sort(donors, new FirstNameComparator());
-
-            // Print the sorted list
-            results = printTable(donors);
-          }
-
-          // Sort by bloodType if that's what the user entered
-          else if (sortField.equals("type"))
-          {
-            // Sort donors ArrayList using the TypeComparator class
-            Collections.sort(donors, new TypeComparator());
-
-            // Print the sorted list
-            results = printTable(donors);
-          }
-
-          // Sort by donationTime if that's what the user entered
-          else if (sortField.equals("time"))
-          {
-            // Sort donors ArrayList using DonationTimeComparator class
-            Collections.sort(donors, new DonationTimeComparator());
-
-            // Print the sorted list
-            results = printTable(donors);
-          }
-
-          // Print usage statement if the user did not provide
-          // proper input
-          else
-          {
-            isInputValid = false;
-            usage();
-          }
-        }
-        catch(ArrayIndexOutOfBoundsException e)
-        {
-          isInputValid = false;
-          usage();
-        }
+        // Print the sorted list
+        results = printTable(donors);
       }
-      catch (FileNotFoundException e)
+
+      // Sort by lastName if that's what the user entered
+      else if (sortField.equals("last"))
+      {
+        // Sort donors ArrayList using the LastNameComparator class
+        Collections.sort(donors, new LastNameComparator());
+
+        // Print the sorted list
+        results = printTable(donors);
+      }
+
+      // Sort by firstName if that's what the user entered
+      else if (sortField.equals("first"))
+      {
+        // Sort donors ArrayList using the FirstNameComparator class
+        Collections.sort(donors, new FirstNameComparator());
+
+        // Print the sorted list
+        results = printTable(donors);
+      }
+
+      // Sort by bloodType if that's what the user entered
+      else if (sortField.equals("type"))
+      {
+        // Sort donors ArrayList using the TypeComparator class
+        Collections.sort(donors, new TypeComparator());
+
+        // Print the sorted list
+        results = printTable(donors);
+      }
+
+      // Sort by donationTime if that's what the user entered
+      else if (sortField.equals("time"))
+      {
+        // Sort donors ArrayList using DonationTimeComparator class
+        Collections.sort(donors, new DonationTimeComparator());
+
+        // Print the sorted list
+        results = printTable(donors);
+      }
+
+      // Print usage statement if the user did not provide
+      // proper input
+      else
       {
         isInputValid = false;
         usage();
       }
     }
+  }
 
-    // Method to print usage statement
-    public void usage()
+  // Method to print usage statement
+  public void usage()
+  {
+    System.out.println();
+    System.out.println("When prompted, enter a the name of the file. The file extension is optional.");
+    System.out.println("Then, type in the name of the field you would like to sort by [id num, last, first, type, time]");
+    System.out.println();
+    System.out.println("Make sure your file has the necessary values seperated by commas with no spaces. As in this:");
+    System.out.println("[Id Number],[Last Name],[First Name],[Blood Type],[Donation Time]");
+    System.out.println();
+  }
+
+  // Method used to print the sorted list as a table
+  public String printTable(ArrayList<BloodDonor> donors)
+  {
+    String table = "";
+    // Printing titles for columns
+    table += String.format("%-8s    %-15s %-15s %-8s %-4s %n %n", "Id Num", "Last", "First", "Type", "Time");
+
+    // Printing sorted list
+    for (BloodDonor d : donors)
     {
-      System.out.println();
-      System.out.println("When prompted, enter a the name of the file. The file extension is optional.");
-      System.out.println("Then, type in the name of the field you would like to sort by [id num, last, first, type, time]");
-      System.out.println();
-      System.out.println("Make sure your file has the necessary values seperated by commas with no spaces. As in this:");
-      System.out.println("[Id Number],[Last Name],[First Name],[Blood Type],[Donation Time]");
-      System.out.println();
+      table += String.format("%-8d    %-15s %-15s %-8s %-4.1f %n", d.idNum, d.lastName, d.firstName, d.type, d.donationTime);
     }
 
-    // Method used to print the sorted list as a table
-    public String printTable(ArrayList<BloodDonor> donors)
-    {
-      String table = "";
-      // Printing titles for columns
-      table += String.format("%-8s    %-15s %-15s %-8s %-4s %n %n", "Id Num", "Last", "First", "Type", "Time");
+    return table;
+  }
 
-      // Printing sorted list
-      for (BloodDonor d : donors)
+  public ArrayList<BloodDonor> createList(String filePath)
+  {
+    // Creating array list of blood donors
+    ArrayList<BloodDonor> donors = new ArrayList<>();
+
+    try
+    {
+      // Creating new scanner to read in from file
+      Scanner file = new Scanner(new File(filePath));
+
+      try
       {
-        table += String.format("%-8d    %-15s %-15s %-8s %-4.1f %n", d.idNum, d.lastName, d.firstName, d.type, d.donationTime);
-      }
+        // Looping through each line of input and adding those values to the donors ArrayList
+        while (file.hasNext())
+        {
+          // Reading line from file
+          String line = file.nextLine();
 
-      return table;
+          // Creating array of strings
+          String[] values = line.split(",");
+
+          // Creating new BloodDonor objects with the proper values and adding them
+          // to the donors ArrayList
+          BloodDonor donor = new BloodDonor(Integer.parseInt(values[0]), values[1], values[2], values[3], Double.parseDouble(values[4]));
+          donors.add(donor);
+        }
+      }
+      catch(ArrayIndexOutOfBoundsException e)
+      {
+        usage();
+      }
     }
+    catch(FileNotFoundException e)
+    {
+      usage();
+    }
+    return donors;
   }
 
 }

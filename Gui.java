@@ -98,6 +98,44 @@ public class Gui extends JFrame
       fileChooser.setDialogTitle("Select File to be Sorted");
       if (fileChooser.showOpenDialog(open) == JFileChooser.APPROVE_OPTION);
       filePath = fileChooser.getSelectedFile().getAbsolutePath();
+
+      try
+      {
+        // Creating new scanner to read in from file
+        Scanner file = new Scanner(new File(filePath));
+
+        // Creating array list of blood donors
+        ArrayList<BloodDonor> donors = new ArrayList<>();
+
+        try
+        {
+          // Looping through each line of input and adding those values to the donors ArrayList
+          while (file.hasNext())
+          {
+            // Reading line from file
+            String line = file.nextLine();
+
+            // Creating array of strings
+            String[] values = line.split(",");
+
+            // Creating new BloodDonor objects with the proper values and adding them
+            // to the donors ArrayList
+            BloodDonor donor = new BloodDonor(Integer.parseInt(values[0]), values[1], values[2], values[3], Double.parseDouble(values[4]));
+            donors.add(donor);
+          }
+          printTable(donors);
+        }
+        catch(ArrayIndexOutOfBoundsException e)
+        {
+          isInputValid = false;
+          usage();
+        }
+      }
+      catch(FileNotFoundException e)
+      {
+        isInputValid = false;
+        usage();
+      }
     }
   }
 

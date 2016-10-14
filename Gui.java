@@ -27,6 +27,10 @@ public class Gui extends JFrame
     super("Blood Donor Sorting Progam");
     setLayout(new FlowLayout());
 
+    // Creating icon for the frame
+    ImageIcon icon = new ImageIcon("icon.png");
+    setIconImage(icon.getImage());
+
     getFileButton = new JButton("Select Input File");
     sortButton = new JButton("sort");
     resultsText = new JTextArea(10, 50);

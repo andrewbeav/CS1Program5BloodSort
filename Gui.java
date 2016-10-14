@@ -127,13 +127,11 @@ public class Gui extends JFrame
         }
         catch(ArrayIndexOutOfBoundsException e)
         {
-          isInputValid = false;
           usage();
         }
       }
       catch(FileNotFoundException e)
       {
-        isInputValid = false;
         usage();
       }
     }
@@ -264,34 +262,34 @@ public class Gui extends JFrame
         usage();
       }
     }
+  }
 
-    // Method to print usage statement
-    public void usage()
+  // Method to print usage statement
+  public void usage()
+  {
+    System.out.println();
+    System.out.println("When prompted, enter a the name of the file. The file extension is optional.");
+    System.out.println("Then, type in the name of the field you would like to sort by [id num, last, first, type, time]");
+    System.out.println();
+    System.out.println("Make sure your file has the necessary values seperated by commas with no spaces. As in this:");
+    System.out.println("[Id Number],[Last Name],[First Name],[Blood Type],[Donation Time]");
+    System.out.println();
+  }
+
+  // Method used to print the sorted list as a table
+  public String printTable(ArrayList<BloodDonor> donors)
+  {
+    String table = "";
+    // Printing titles for columns
+    table += String.format("%-8s    %-15s %-15s %-8s %-4s %n %n", "Id Num", "Last", "First", "Type", "Time");
+
+    // Printing sorted list
+    for (BloodDonor d : donors)
     {
-      System.out.println();
-      System.out.println("When prompted, enter a the name of the file. The file extension is optional.");
-      System.out.println("Then, type in the name of the field you would like to sort by [id num, last, first, type, time]");
-      System.out.println();
-      System.out.println("Make sure your file has the necessary values seperated by commas with no spaces. As in this:");
-      System.out.println("[Id Number],[Last Name],[First Name],[Blood Type],[Donation Time]");
-      System.out.println();
+      table += String.format("%-8d    %-15s %-15s %-8s %-4.1f %n", d.idNum, d.lastName, d.firstName, d.type, d.donationTime);
     }
 
-    // Method used to print the sorted list as a table
-    public String printTable(ArrayList<BloodDonor> donors)
-    {
-      String table = "";
-      // Printing titles for columns
-      table += String.format("%-8s    %-15s %-15s %-8s %-4s %n %n", "Id Num", "Last", "First", "Type", "Time");
-
-      // Printing sorted list
-      for (BloodDonor d : donors)
-      {
-        table += String.format("%-8d    %-15s %-15s %-8s %-4.1f %n", d.idNum, d.lastName, d.firstName, d.type, d.donationTime);
-      }
-
-      return table;
-    }
+    return table;
   }
 
 }

@@ -28,7 +28,7 @@ public class Gui extends JFrame
     setLayout(new FlowLayout());
 
     // Creating icon for the frame
-    ImageIcon icon = new ImageIcon("icon.png");
+    ImageIcon icon = new ImageIcon(getClass().getResource("icon.png"));
     setIconImage(icon.getImage());
 
     getFileButton = new JButton("Select Input File");
